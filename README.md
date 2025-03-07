@@ -143,10 +143,10 @@ To use gesture controls:
 ## Development
 
 ### Project Structure
-tetris/
-├── tetris_keyboard.py # Main game logic
-├── tetris_gesture_control.py # Gesture control implementation
-└── README.md # Documentation
+tetris/  
+├── tetris_keyboard.py # Main game logic  
+├── tetris_gesture_control.py # Gesture control implementation  
+└── README.md # Documentation  
 
 
 ### Customization
@@ -159,18 +159,8 @@ tetris/
 
 Feel free to submit issues and enhancement requests!
 
-## License
-
-This project is open source and available under the MIT License.
-
 ## Acknowledgments
 
 - Built with PyGame, OpenCV, and MediaPipe
 - Inspired by classic Tetris gameplay
 - Thanks to the computer vision and gaming communities
-
-## Version History
-
-- v1.0.0: Initial release with basic functionality
-- v1.1.0: Added gesture controls
-- v1.2.0: Improved control responsiveness
