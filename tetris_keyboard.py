@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# Hello ! Myself Utsa Ghosh ... Hope you enjoy playing this game ...
 import pygame
 import random
 import sys
