@@ -3,12 +3,12 @@ name: Python application
 on:
   push:
     branches: [ main ]
+    tags: [ '*' ]
   pull_request:
     branches: [ main ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -33,3 +33,31 @@ jobs:
     - name: Check main script runs
       run: |
         python Tetris\ game/tetris_keyboard.py --help || true
+
+    - name: Create game artifact (zip)
+      run: |
+        zip -r tetris-game.zip "Tetris game"
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: tetris-game
+        path: tetris-game.zip
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: tetris-game
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: tetris-game.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
