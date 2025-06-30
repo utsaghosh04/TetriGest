@@ -33,10 +33,15 @@ jobs:
     - name: Check main script runs
       run: |
         python Tetris\ game/tetris_keyboard.py --help || true
+    - name: List files for debug
+      run: ls -l
+
+    - name: List files for debug
+      run: ls -l
 
     - name: Create game artifact (zip)
       run: |
-        zip -r tetris-game.zip "Tetris game"
+        zip -r tetris-game.zip ./Tetris\ game
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
